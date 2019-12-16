@@ -1,11 +1,12 @@
-# 死亡災害DB、機械災害DBのExcelファイルをダウンロード
+# fasttext
+## 死亡災害DB、機械災害DBのExcelファイルをダウンロード
   シェルスクリプトで一括ダウンロード（wgetを使う）
 
   ```
   $ ./get_doc.sh
   ```
 
-# ExcelをCSVに変換
+## ExcelをCSVに変換
   Pandasを使う。
   第一引数はExcelファイルを格納したディレクトリのフルパス。
   実行したディレクトリにCSVファイルが出力される。
@@ -14,7 +15,7 @@
   $ python excel_to_csv.py /path/to/excel/files/dir/
   ```
 
-# 災害状況、災害発生状況を分かち書きする。
+## 災害状況、災害発生状況を分かち書きする。
   PythonでMeCabを使う。辞書はipadic-neologd。
   mecab-python3などインストールしておく。
 
@@ -24,7 +25,7 @@
   ```
   $ python tokenize_csv.py /path/to/csv/files/dir/ wakati.txt
   ```
-# fasttextでモデルを作成する。
+## fasttextでモデルを作成する。
   fasttextをインストールする。
  
   ```
@@ -39,7 +40,7 @@
   $ ./fasttext skipgram -input ../wakati.txt -output fasttext_model -dim 100 
   ```
 
-# 学習したモデルをPython+gensimで使用する。
+## 学習したモデルをPython+gensimで使用する。
 
   ```
   from gensim.models.wrappers.fasttext import FastText
@@ -49,7 +50,7 @@
   word = model.most_similar([ vector ], [], 10)
   ```
 
-# 実行例
+## 類似語の抽出結果の例
   * カバーの類似語
   [('カバー', 1.0), ('トランスファー', 0.5716778039932251), ('覆う', 0.5670155882835388), ('インターロック', 0.5612574815750122), ('フタ', 0.5587755441665649), ('安全ピン', 0.5542986989021301), ('キズ', 0.5399497151374817), ('パッ', 0.5398361682891846), ('キン', 0.5317845344543457), ('スピンドル', 0.5294221639633179)]
 
