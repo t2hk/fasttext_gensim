@@ -15,7 +15,7 @@
   $ python excel_to_csv.py /path/to/excel/files/dir/
   ```
 
-## 災害状況、災害発生状況を分かち書きする。
+## 状況を分かち書きする。
   PythonでMeCabを使う。辞書はipadic-neologd。
   mecab-python3などインストールしておく。
 
