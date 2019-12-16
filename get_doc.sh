@@ -17,3 +17,4 @@ do
         wget https://anzeninfo.mhlw.go.jp/anzen/sib_xls/${file}
 done
 
+wget https://anzeninfo.mhlw.go.jp/anzen/sai/kikaisaigai_db28.xlsx
